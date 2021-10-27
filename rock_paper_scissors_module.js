@@ -10,7 +10,7 @@ var myGame = (function () {
 	// functions
 	var computerInput, compare, display;
 
-	// private functions  (only visible in module scope)
+	// private functions  (only visible in module scope, cannot be called from outside the module)
 	computerInput = function () {
 		switch (Math.floor(Math.random() * 3)) {
 			case 0:
@@ -23,7 +23,7 @@ var myGame = (function () {
 				computerChoice = 'Scissors';
 				break;
 		}
-		console.log('Computer: ' + computerChoice);
+		// console.log('Computer: ' + computerChoice);
 	};
 
 	compare = function () {
@@ -65,5 +65,5 @@ var myGame = (function () {
 
 var buttons = document.getElementsByClassName('button');
 for (let i = 0; i < buttons.length; i++) {
-	buttons[i].addEventListener('click', myGame.play)
+	buttons[i].addEventListener('click', myGame.play);
 }
