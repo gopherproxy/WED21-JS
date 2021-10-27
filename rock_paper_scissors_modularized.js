@@ -51,7 +51,7 @@ function compare() {
 	} else if (userChoice === 'Rock' && computerChoice === 'Scissors') {
 		showResult.innerHTML = 'You win!';
 	} else if (userChoice === 'Rock' && computerChoice === 'Paper') {
-		resultDisplay.innerHTML = 'Computer wins!';
+		showResult.innerHTML = 'Computer wins!';
 	}
 }
 
