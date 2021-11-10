@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Classes</title>
+</head>
+<body>
+   <script src="Missile.js" ></script>
+   <script>
+       // initializing an object
+        myRocket = new Missile();
+        myRocket.describeYourself();
+        console.log('Current fuel: ' + myRocket.fueltank + 'l');
+        //myRocket.setfueltank(6000);
+        // calling the setter
+        myRocket.fueltank = 6000;
+        console.log('Current fuel: ' + myRocket.fueltank + 'l');
+        // calling the static method
+        Missile.distressSignal();
+
+   </script>
+</body>
+</html>
