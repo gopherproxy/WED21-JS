@@ -9,7 +9,7 @@
    <script src="Missile.js" ></script>
    <script>
        // initializing an object
-        myRocket = new Missile();
+        myRocket = new Missile('I am a Saturn V', 600, 8000000);
         myRocket.describeYourself();
         console.log('Current fuel: ' + myRocket.fueltank + 'l');
         //myRocket.setfueltank(6000);
@@ -18,6 +18,9 @@
         console.log('Current fuel: ' + myRocket.fueltank + 'l');
         // calling the static method
         Missile.distressSignal();
+        console.log('Mission accomplished in: ' + myRocket.calculateMission() + 'h')
+        var bezosRocket = new AmazonRocket('I\'am Blue Origin', 8456, 20000);
+        bezosRocket.addLoad('William Shatner')
 
    </script>
 </body>
