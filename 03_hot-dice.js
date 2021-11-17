@@ -21,28 +21,28 @@ class Dice {
 
 class Player {
 
-	constructor(){
+	constructor() {
 		this.name = 'Human';
 		this.diceResult = 0;
 		this.score = 0;
 	}
 
-	rollDice(id1, id2, output){
+	rollDice(id1, id2, output) {
 		let dice1 = new Dice(id1);
 		dice1.rollDice();
-	
+
 		let dice2 = new Dice(id2);
 		dice2.rollDice();
-	
+
 		this.diceResult = dice1.result + dice2.result;
 		document.getElementById(output).innerHTML = this.diceResult;
 	}
 
-	get result(){
+	get result() {
 		return this.diceResult
 	}
 
-	playerName(){
+	playerName() {
 		// human player is supposed to choose a nickname
 		// to be stored in local storage!
 	}
@@ -54,15 +54,32 @@ class Player {
 /////////////////
 // GAME LOGIC //
 ////////////////
+var playAgainButton;
+
+playAgainButton = document.getElementById('playAgain');
+playAgainButton.addEventListener('click', gameLoop);
+
+var player1 = new Player();
+var computer = new Player();
 
 function gameLoop() {
-	'use strict';
 
-	var player1 = new Player();
+	function compare(human, computer) {
+		console.log(human.result + '<-->' + computer.result);
+		if (human.result < computer.result) {
+			computer.score++;
+			document.getElementById('winLoose').innerHTML = 'You loose!'
+		} else if (human.result > computer.result) {
+			human.score++;
+			document.getElementById('winLoose').innerHTML = 'You win!'
+		} else {
+			document.getElementById('winLoose').innerHTML = 'It\'s a draw'
+		}
+	};
+
 	player1.rollDice('dice1', 'dice2', 'pResult');
-
-	var computer = new Player();
-	computer.rollDice('dice3', 'dice4', 'cResult')
+	computer.rollDice('dice3', 'dice4', 'cResult');
+	compare(player1, computer);
 
 }
 
