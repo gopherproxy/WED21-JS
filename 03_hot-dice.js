@@ -19,16 +19,37 @@ class Dice {
 	// END class Dice
 }
 
-function rollDices(id1, id2, output) { // call to the dice class - 2 dice instantiated and rolled
-	let dice1 = new Dice(id1);
-	dice1.rollDice();
+class Player {
 
-	let dice2 = new Dice(id2);
-	dice2.rollDice();
+	constructor(){
+		this.name = 'Human';
+		this.diceResult = 0;
+		this.score = 0;
+	}
 
-	this.diceResult = dice1.result + dice2.result;
-	document.getElementById(output).innerHTML = this.diceResult;
+	rollDice(id1, id2, output){
+		let dice1 = new Dice(id1);
+		dice1.rollDice();
+	
+		let dice2 = new Dice(id2);
+		dice2.rollDice();
+	
+		this.diceResult = dice1.result + dice2.result;
+		document.getElementById(output).innerHTML = this.diceResult;
+	}
+
+	get result(){
+		return this.diceResult
+	}
+
+	playerName(){
+		// human player is supposed to choose a nickname
+		// to be stored in local storage!
+	}
+
+	// END class Player
 }
+
 
 /////////////////
 // GAME LOGIC //
@@ -37,7 +58,11 @@ function rollDices(id1, id2, output) { // call to the dice class - 2 dice instan
 function gameLoop() {
 	'use strict';
 
-	rollDices('dice1', 'dice2', 'pResult');
+	var player1 = new Player();
+	player1.rollDice('dice1', 'dice2', 'pResult');
+
+	var computer = new Player();
+	computer.rollDice('dice3', 'dice4', 'cResult')
 
 }
 
